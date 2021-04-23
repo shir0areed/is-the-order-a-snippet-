@@ -28,13 +28,8 @@ namespace Hoge
 		static_cast<SHogeImpl&>(shoge).~SHogeImpl();
 	}
 
-	int Proc(int x, const CHoge::SHogeImpl& y)
-	{
-		return x * y.z[0] * y.z[1];
-	}
-
 	int CHoge::Func(int a) const
 	{
-		return Proc(a, shoge);
+		return a * shoge.get().z[0] * shoge.get().z[1];
 	}
 }

@@ -7,7 +7,7 @@ namespace Hoge
 	public:
 		int Func(int a) const;
 	private:
-		class SHogeImpl;
-		SImpl::SSImpl<SHogeImpl, 16> shoge;
+		struct Impl;
+		SImpl::SSImpl<Impl, 16> shoge;
 	};
 }

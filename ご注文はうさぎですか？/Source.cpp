@@ -8,9 +8,8 @@ namespace Hoge
 {
 	using namespace std;
 
-	class CHoge::SHogeImpl
+	struct CHoge::Impl
 	{
-	public:
 		vector<int>z{ 1800, 8 };
 	};
 

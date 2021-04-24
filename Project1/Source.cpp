@@ -1,7 +1,6 @@
 #include "Header.h"
 
 #include "SImplImpl.h"
-template struct SImpl::SSImpl<decltype(Hoge::CHoge::impl)::ImplType, decltype(Hoge::CHoge::impl)::implSize>;
 
 #include <vector>
 
@@ -12,6 +11,12 @@ namespace Hoge
 	struct CHoge::Impl
 	{
 		Impl()
+			: values{ 1200, 8 }
+		{
+
+		}
+		Impl(int v1, int v2)
+			: values{ v1, v2 }
 		{
 
 		}
@@ -19,8 +24,15 @@ namespace Hoge
 		{
 
 		}
-		vector<int>values{ 1800, 8 };
+		vector<int>values;
 	};
+
+	CHoge::CHoge()
+		: impl{ 1800, 8 }
+	{
+	}
+
+	CHoge::~CHoge() = default;
 
 	int CHoge::Func(int a) const
 	{

@@ -1,30 +1,21 @@
+#include <utility>
+
 template<typename T, size_t size>
-int Func()
+template<typename... Args>
+SImpl::SSImpl<T, size>::SSImpl(Args&&... args)
 {
-	char temp[size]{};
-	new(temp)SImpl::SSImpl<T, size>;
-	reinterpret_cast<SImpl::SSImpl<T, size>*>(temp)->~SSImpl();
-	return 0;
+	new(buf)T{ std::forward<Args>(args)... };
+}
+
+template<typename T, size_t size>
+SImpl::SSImpl<T, size>::~SSImpl()
+{
+	reinterpret_cast<T*>(buf)->~T();
 }
 
 template<typename T, size_t size>
 SImpl::SSImpl<T, size>::operator T& ()
 {
-	//Init<T>(nullptr);
-	//Uninit<T>(nullptr);
-	//static int a = Func<T, size>();
 	static_assert(sizeof(SSImpl<T, size>) >= sizeof(T), "SImpl too small");
-	return *reinterpret_cast<T*>(this);
-}
-
-template<typename T>
-void SImpl::Init(char* buf)
-{
-	new(buf)T;
-}
-
-template<typename T>
-void SImpl::Uninit(char* buf)
-{
-	reinterpret_cast<T*>(buf)->~T();
+	return *reinterpret_cast<T*>(buf);
 }

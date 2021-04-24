@@ -2,20 +2,15 @@
 
 namespace SImpl
 {
-	template<typename T>
-	void Init(char*);
-
-	template<typename T>
-	void Uninit(char*);
-
 	template<typename T, size_t size>
 	struct SSImpl
 	{
-		using ImplType = T;
-		static constexpr size_t implSize = size;
-		SSImpl() { Init<T>(buf); }
-		~SSImpl() { Uninit<T>(buf); }
 		char buf[size]{};
+
+		template<typename... Args>
+		explicit SSImpl(Args&&... args);
+		~SSImpl();
+
 		operator T& ();
 		operator const T& () const { return const_cast<SSImpl*>(this)->operator T & (); }
 		T& get() { return this->operator T & (); }

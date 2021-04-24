@@ -18,7 +18,7 @@ inline SImpl::SSImpl<T, size>::~SSImpl()
 }
 
 template<typename T, size_t size>
-inline T& SImpl::SSImpl<T, size>::get()
+inline T& SImpl::SSImpl<T, size>::get() noexcept
 {
 	static_assert(sizeof(SSImpl<T, size>) >= sizeof(T), "SImpl too small");
 	return *reinterpret_cast<T*>(buf);

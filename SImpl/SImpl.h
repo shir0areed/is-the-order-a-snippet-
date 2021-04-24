@@ -13,8 +13,10 @@ namespace SImpl
 		explicit SSImpl(Args&&... args);
 		~SSImpl();
 
-		T& get();
-		const T& get() const { return const_cast<SSImpl*>(this)->get(); }
+		T& get() noexcept;
+		const T& get() const noexcept { return const_cast<SSImpl*>(this)->get(); }
+		T* operator -> () noexcept { return &get(); }
+		const T* operator -> () const noexcept { return &get(); }
 	};
 }
 #endif

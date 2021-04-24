@@ -6,19 +6,19 @@
 
 template<typename T, size_t size>
 template<typename... Args>
-SImpl::SSImpl<T, size>::SSImpl(Args&&... args)
+inline SImpl::SSImpl<T, size>::SSImpl(Args&&... args)
 {
 	new(buf)T(std::forward<Args>(args)...);
 }
 
 template<typename T, size_t size>
-SImpl::SSImpl<T, size>::~SSImpl()
+inline SImpl::SSImpl<T, size>::~SSImpl()
 {
 	reinterpret_cast<T*>(buf)->~T();
 }
 
 template<typename T, size_t size>
-T& SImpl::SSImpl<T, size>::get()
+inline T& SImpl::SSImpl<T, size>::get()
 {
 	static_assert(sizeof(SSImpl<T, size>) >= sizeof(T), "SImpl too small");
 	return *reinterpret_cast<T*>(buf);

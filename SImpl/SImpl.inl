@@ -12,6 +12,12 @@ inline SImpl::SSImpl<T, size>::SSImpl(Args&&... args)
 }
 
 template<typename T, size_t size>
+SImpl::SSImpl<T, size>::SSImpl(const SSImpl& a)
+{
+	new(buf)T(*a.get());
+}
+
+template<typename T, size_t size>
 inline T* SImpl::SSImpl<T, size>::get() noexcept
 {
 	static_assert(sizeof(SSImpl<T, size>) >= sizeof(T), "too small size");

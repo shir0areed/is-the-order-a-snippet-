@@ -12,15 +12,15 @@ inline SImpl::SSImpl<T, size>::SSImpl(Args&&... args)
 }
 
 template<typename T, size_t size>
-inline SImpl::SSImpl<T, size>::~SSImpl()
-{
-	reinterpret_cast<T*>(buf)->~T();
-}
-
-template<typename T, size_t size>
 inline T& SImpl::SSImpl<T, size>::get() noexcept
 {
 	static_assert(sizeof(SSImpl<T, size>) >= sizeof(T), "SImpl too small");
 	return *reinterpret_cast<T*>(buf);
+}
+
+template<typename T, size_t size>
+inline SImpl::SSImpl<T, size>::~SSImpl()
+{
+	reinterpret_cast<T*>(buf)->~T();
 }
 #endif

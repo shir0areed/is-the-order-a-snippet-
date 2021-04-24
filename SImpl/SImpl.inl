@@ -5,16 +5,22 @@
 #include <utility>
 
 template<typename T, size_t size>
-template<typename... Args>
-inline SImpl::SSImpl<T, size>::SSImpl(Args&&... args)
+inline SImpl::SSImpl<T, size>::SSImpl()
 {
-	new(buf)T(std::forward<Args>(args)...);
+	new(buf)T;
 }
 
 template<typename T, size_t size>
 inline SImpl::SSImpl<T, size>::SSImpl(const SSImpl& a)
 {
 	new(buf)T(*a.get());
+}
+
+template<typename T, size_t size>
+template<typename... Args>
+inline SImpl::SSImpl<T, size>::SSImpl(Args&&... args)
+{
+	new(buf)T(std::forward<Args>(args)...);
 }
 
 template<typename T, size_t size>

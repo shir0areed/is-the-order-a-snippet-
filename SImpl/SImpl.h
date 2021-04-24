@@ -9,10 +9,11 @@ namespace SImpl
 	{
 		char buf[size]{};
 
+		SSImpl();
+		SSImpl(const SSImpl&);
+
 		template<typename... Args>
 		explicit SSImpl(Args&&... args);
-
-		SSImpl(const SSImpl&);
 
 		T* get() noexcept;
 		const T* get() const noexcept { return const_cast<SSImpl*>(this)->get(); }
@@ -20,6 +21,10 @@ namespace SImpl
 		const T* operator -> () const noexcept { return get(); }
 
 		~SSImpl();
+
+		SSImpl& operator =(const SSImpl&) = delete;
+		SSImpl(SSImpl&&) = delete;
+		SSImpl& operator =(SSImpl&&) = delete;
 	};
 }
 #endif

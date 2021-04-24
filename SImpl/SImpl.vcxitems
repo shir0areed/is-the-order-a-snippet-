@@ -15,6 +15,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)SImpl.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)SImplImpl.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)SImpl.inl" />
   </ItemGroup>
 </Project>

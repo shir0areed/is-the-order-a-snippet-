@@ -149,4 +149,9 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ItemGroup>
+    <ClInclude Update="C:\Users\Shiro\source\repos\ご注文はうさぎですか？\SImpl\SImpl.inl">
+      <FileType>Document</FileType>
+    </ClInclude>
+  </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 #include "Header.h"
 
-#include "SImplImpl.h"
+#include "SImpl.inl"
 
 #include <vector>
 

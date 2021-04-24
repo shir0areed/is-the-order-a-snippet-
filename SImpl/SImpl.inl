@@ -17,6 +17,13 @@ inline SImpl::SSImpl<T, size>::SSImpl(const SSImpl& a)
 }
 
 template<typename T, size_t size>
+inline SImpl::SSImpl<T, size>& SImpl::SSImpl<T, size>::operator=(const SSImpl& a)
+{
+	*get() = *a.get();
+	return *this;
+}
+
+template<typename T, size_t size>
 template<typename... Args>
 inline SImpl::SSImpl<T, size>::SSImpl(Args&&... args)
 {

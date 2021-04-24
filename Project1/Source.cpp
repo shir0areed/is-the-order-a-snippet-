@@ -11,7 +11,7 @@ namespace Hoge
 	struct CHoge::Impl
 	{
 		Impl()
-			: values{ 1200, 8 }
+			: values{ 0, 8 }
 		{
 
 		}

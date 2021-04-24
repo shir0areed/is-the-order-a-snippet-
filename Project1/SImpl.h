@@ -5,6 +5,8 @@ namespace SImpl
 	template<typename T, size_t size>
 	struct SSImpl
 	{
+		using ImplType = T;
+		static constexpr size_t implSize = size;
 		SSImpl();
 		~SSImpl();
 		char buf[size]{};

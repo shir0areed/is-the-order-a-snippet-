@@ -1,6 +1,7 @@
 #include "Header.h"
 
 #include "SImplImpl.h"
+//template class SImpl::SSImpl<decltype(Hoge::CHoge::shoge)::ImplType, decltype(Hoge::CHoge::shoge)::implSize>;
 
 #include <vector>
 
@@ -10,12 +11,12 @@ namespace Hoge
 
 	struct CHoge::Impl
 	{
-		vector<int>z{ 1800, 8 };
+		vector<int>values{ 1800, 8 };
 	};
 
 	int CHoge::Func(int a) const
 	{
-		//constexpr auto size = sizeof(CHoge::Impl);
-		return a * shoge.get().z[0] * shoge.get().z[1];
+		//constexpr auto realSize = sizeof(CHoge::Impl);
+		return a * impl.get().values[0] * impl.get().values[1];
 	}
 }

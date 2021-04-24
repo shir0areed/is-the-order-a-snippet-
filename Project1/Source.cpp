@@ -34,7 +34,7 @@ namespace Hoge
 
 	CHoge::~CHoge() = default;
 
-	int CHoge::Func(int a) const
+	int CHoge::Func(int a)
 	{
 		//constexpr auto realSize = sizeof(CHoge::Impl);
 		return a * impl->values[0] * impl->values[1];

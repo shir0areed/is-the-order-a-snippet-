@@ -7,7 +7,7 @@ namespace Hoge
 	public:
 		CHoge();
 		~CHoge();
-		int Func(int a) const;
+		int Func(int a);
 	private:
 		struct Impl;
 		SImpl::SSImpl<Impl, 24> impl;

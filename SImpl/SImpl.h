@@ -22,6 +22,8 @@ namespace SImpl
 		const T* get() const noexcept { return const_cast<SSImpl*>(this)->get(); }
 		T* operator -> () noexcept { return get(); }
 		const T* operator -> () const noexcept { return get(); }
+		T& operator * () noexcept { return *get(); }
+		const T& operator * () const noexcept { return *get(); }
 
 		~SSImpl();
 	};

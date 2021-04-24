@@ -8,7 +8,7 @@ template<typename T, size_t size>
 template<typename... Args>
 SImpl::SSImpl<T, size>::SSImpl(Args&&... args)
 {
-	new(buf)T{ std::forward<Args>(args)... };
+	new(buf)T(std::forward<Args>(args)...);
 }
 
 template<typename T, size_t size>

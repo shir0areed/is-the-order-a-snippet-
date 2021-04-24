@@ -1,7 +1,7 @@
 #include "Header.h"
 
 #include "SImplImpl.h"
-//template class SImpl::SSImpl<decltype(Hoge::CHoge::shoge)::ImplType, decltype(Hoge::CHoge::shoge)::implSize>;
+template struct SImpl::SSImpl<decltype(Hoge::CHoge::impl)::ImplType, decltype(Hoge::CHoge::impl)::implSize>;
 
 #include <vector>
 

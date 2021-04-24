@@ -10,7 +10,7 @@ int Func()
 template<typename T, size_t size>
 SImpl::SSImpl<T, size>::operator T& ()
 {
-	static int a = Func<T, size>();
+	//static int a = Func<T, size>();
 	static_assert(sizeof(SSImpl<T, size>) >= sizeof(T), "SImpl too small");
 	return *reinterpret_cast<T*>(this);
 }

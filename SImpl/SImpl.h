@@ -12,6 +12,8 @@ namespace SImpl
 		SSImpl();
 		SSImpl(const SSImpl&);
 		SSImpl& operator =(const SSImpl&);
+		SSImpl(SSImpl&&) = delete;
+		SSImpl& operator =(SSImpl&&) = delete;
 
 		template<typename... Args>
 		explicit SSImpl(Args&&... args);
@@ -22,9 +24,6 @@ namespace SImpl
 		const T* operator -> () const noexcept { return get(); }
 
 		~SSImpl();
-
-		SSImpl(SSImpl&&) = delete;
-		SSImpl& operator =(SSImpl&&) = delete;
 	};
 }
 #endif

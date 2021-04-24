@@ -12,7 +12,7 @@ inline SImpl::SSImpl<T, size>::SSImpl(Args&&... args)
 }
 
 template<typename T, size_t size>
-SImpl::SSImpl<T, size>::SSImpl(const SSImpl& a)
+inline SImpl::SSImpl<T, size>::SSImpl(const SSImpl& a)
 {
 	new(buf)T(*a.get());
 }

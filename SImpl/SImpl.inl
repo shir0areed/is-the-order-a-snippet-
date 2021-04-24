@@ -24,6 +24,19 @@ inline SImpl::SSImpl<T, size>& SImpl::SSImpl<T, size>::operator=(const SSImpl& a
 }
 
 template<typename T, size_t size>
+inline SImpl::SSImpl<T, size>::SSImpl(SSImpl&& a)
+{
+	new(buf)T(std::move(*a.get()));
+}
+
+template<typename T, size_t size>
+inline SImpl::SSImpl<T, size>& SImpl::SSImpl<T, size>::operator=(SSImpl&& a)
+{
+	*get() = std::move(*a.get());
+	return *this;
+}
+
+template<typename T, size_t size>
 template<typename... Args>
 inline SImpl::SSImpl<T, size>::SSImpl(Args&&... args)
 {

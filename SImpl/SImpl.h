@@ -12,8 +12,8 @@ namespace SImpl
 		SSImpl();
 		SSImpl(const SSImpl&);
 		SSImpl& operator =(const SSImpl&);
-		SSImpl(SSImpl&&) = delete;
-		SSImpl& operator =(SSImpl&&) = delete;
+		SSImpl(SSImpl&&);
+		SSImpl& operator =(SSImpl&&);
 
 		template<typename... Args>
 		explicit SSImpl(Args&&... args);

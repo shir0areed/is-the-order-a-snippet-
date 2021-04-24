@@ -1,3 +1,5 @@
+#ifndef SIMPL_SIMPL_H
+#define SIMPL_SIMPL_H
 #include <cstddef>
 
 namespace SImpl
@@ -11,9 +13,8 @@ namespace SImpl
 		explicit SSImpl(Args&&... args);
 		~SSImpl();
 
-		operator T& ();
-		operator const T& () const { return const_cast<SSImpl*>(this)->operator T & (); }
-		T& get() { return this->operator T & (); }
-		const T& get() const { return this->operator const T & (); }
+		T& get();
+		const T& get() const { return const_cast<SSImpl*>(this)->get(); }
 	};
 }
+#endif

@@ -1,3 +1,7 @@
+#ifndef SIMPL_SIMPLIMPL_H
+#define SIMPL_SIMPLIMPL_H
+#include "SImpl.h"
+
 #include <utility>
 
 template<typename T, size_t size>
@@ -14,8 +18,9 @@ SImpl::SSImpl<T, size>::~SSImpl()
 }
 
 template<typename T, size_t size>
-SImpl::SSImpl<T, size>::operator T& ()
+T& SImpl::SSImpl<T, size>::get()
 {
 	static_assert(sizeof(SSImpl<T, size>) >= sizeof(T), "SImpl too small");
 	return *reinterpret_cast<T*>(buf);
 }
+#endif

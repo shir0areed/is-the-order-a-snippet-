@@ -11,6 +11,14 @@ namespace Hoge
 
 	struct CHoge::Impl
 	{
+		Impl()
+		{
+
+		}
+		~Impl()
+		{
+
+		}
 		vector<int>values{ 1800, 8 };
 	};
 
